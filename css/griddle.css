@@ -1,0 +1,72 @@
+body {
+	background-color: #00A1CE;
+	padding: 0;
+}
+
+/* actual grid */
+.underlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 1;
+	display: none;
+	height: 100%;
+}
+
+.underlay .col {
+	float: left;
+	background-color: black;
+	opacity: 0.3;
+	height: 100%;
+}
+
+/* content */
+h1 {
+	margin-top: 0;
+}
+
+.content {
+	z-index: 2;
+	position: relative;
+}
+
+#test {
+	clear: left;
+	display: block;
+}
+
+.form_container {
+	background-color: #FFFFFF;
+	padding: 10px;
+	width: 220px;
+	margin: 0 20px;
+	outline: 1px solid gray;
+	float: left;
+}
+
+.col_num_label {
+	float: left;
+	margin-top: 4px;
+}
+
+select {
+	width: 85px;
+	float: left;
+	clear: none;
+	margin-left: 10px;
+}
+
+.checkbox.inline {
+	padding-top: 0;
+}
+
+button {
+	float: left;
+	margin-top: 10px;
+}
+
+button#generate {
+	margin-left: 10px;
+}
