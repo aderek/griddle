@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Griddle</title>
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/griddle.css" rel="stylesheet">
+	
+	<!-- leave blank for adding media queries with JS later -->
+	<style type="text/css"></style>
+	
+</head>
+
+<body>
+	
+	<section class="underlay">
+	
+	</section>
+	
+	<section class="content">
+	
+		<form action="generate.php" method="post">
+	
+			<div class="form_container">
+				
+				<h1>Griddle</h1>
+				
+				<input class="width_page" type="number" name="width_page" placeholder="Width of page (px)">
+			
+				<label class="col_num_label" for="col_num">Number of columns</label>
+				<select class="col_num" name="col_num">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option selected>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+				</select>
+				
+				<input type="number" class="col_margin" name="col_margin" placeholder="Column margin (px)">
+				
+				
+				<label class="inline checkbox">1024px<input type="checkbox" id="tab_land" name="tab_land" value="tab_land"></label>
+				
+				<label class="inline checkbox">768px<input type="checkbox" id="tab_port" name="tab_port" value="tab_horz"></label>
+				
+				<label class="inline checkbox">568px<input type="checkbox" id="phone_land" name="phone_land" value="phone_land"></label>
+				
+				<button id="test" class="btn-info" name="test">Test</button>
+				
+				<button id="generate" class="btn-warning" name="generate">Generate</button>
+				
+			</div>
+			
+		</form>
+	
+	</section>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/griddle.js"></script>
+
+</body>
+
+</html>
