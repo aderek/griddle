@@ -1,4 +1,4 @@
 griddle
 =======
 
-CSS grid generator
+Yet another CSS grid generator
