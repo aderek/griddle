@@ -122,11 +122,18 @@
 		
 			if(!$mobile) {
 		
-				$str_css .= '.span'.$i.'{width:'.$col_width * $i.'px; margin:0 '.$col_margin.'px;float:left;}';
+		    // don't need to add the margin to the width if we are on the first column
+		    if($i == 1) {$j=0;}else{$j=$i;}
+		
+				$str_css .= '.span'.$i.'{width:'.(($col_width * $i) + ($j * $col_margin)).'px; margin:0 '.$col_margin.'px;float:left;}';
 				
-				$offset = ($col_width * $i) + ($col_margin / 2);
+				// do the suffix classes (margin-right)
+				$offset = ($col_width * $i) + ($col_margin * $j);
 				
-				$str_css .= '.offset'.$i.'{margin:0 '.$offset .'px 0 '.($col_margin / 2).'px;float:left;}';
+				$str_css .= '.suffix'.$i.'{margin:0 '.$offset .'px 0 '.$col_margin.'px;float:left;}';
+				
+				// do the prefix classes (margin-left)
+				$str_css .= '.prefix'.$i.'{margin:0 '.$col_margin .'px 0 '.$offset.'px;float:left;}';
 			
 			}
 			
