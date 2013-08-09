@@ -125,10 +125,10 @@
 		    // don't need to add the margin to the width if we are on the first column
 		    if($i == 1) {$j=0;}else{$j=$i;}
 		
-				$str_css .= '.span'.$i.'{width:'.(($col_width * $i) + ($j * $col_margin)).'px; margin:0 '.$col_margin.'px;float:left;}';
+				$str_css .= '.span'.$i.'{width:'.(($col_width * $i) + (($i-1) * ($col_margin*2))).'px; margin:0 '.$col_margin.'px;float:left;}';
 				
 				// do the suffix classes (margin-right)
-				$offset = ($col_width * $i) + ($col_margin * $j);
+				$offset = ($col_width * $i) + (($col_margin*2) * ($i-1)) + $col_margin;
 				
 				$str_css .= '.suffix'.$i.'{margin:0 '.$offset .'px 0 '.$col_margin.'px;float:left;}';
 				
