@@ -122,31 +122,39 @@
 		
 			if(!$mobile) {
 		
-		    // don't need to add the margin to the width if we are on the first column
-		    if($i == 1) {$j=0;}else{$j=$i;}
-		
 				$str_css .= '.span'.$i.'{width:'.(($col_width * $i) + (($i-1) * ($col_margin*2))).'px; margin:0 '.$col_margin.'px;float:left;}';
 				
-				// do the suffix classes (margin-right)
-				$offset = ($col_width * $i) + (($col_margin*2) * ($i-1)) + $col_margin;
-				
-				$str_css .= '.suffix'.$i.'{margin:0 '.$offset .'px 0 '.$col_margin.'px;float:left;}';
-				
-				// do the prefix classes (margin-left)
-				$str_css .= '.prefix'.$i.'{margin:0 '.$col_margin .'px 0 '.$offset.'px;float:left;}';
-			
 			}
 			
 			else {
 			
 				$str_css .= '.span'.$i.'{width:100%; margin:0; padding: 0 10px; clear: left; box-sizing: border-box; -moz-box-sizing: border-box;}';
-			
-				$str_css .= '.prefix'.$i.'{margin: 0}';
-				
-				$str_css .= '.suffix'.$i.'{margin: 0}';
 				
 			}
 				
+		}
+		
+		for ($i=1;$i<=$col_num;$i++) {
+		
+		  if(!$mobile) {
+
+	  		// do the suffix classes (margin-right)
+	  		$offset = ($col_width * $i) + (($col_margin*2) * ($i-1)) + $col_margin;
+	  		
+	  		$str_css .= '.suffix'.$i.'{margin-right:'.$offset .'px;}';
+	  		
+	  		// do the prefix classes (margin-left)
+	  		$str_css .= '.prefix'.$i.'{margin-left:'.$offset .'px;}';
+	  	
+	  	}
+	  	
+	  	else {
+	  	
+	  		$str_css .= '.prefix'.$i.'{margin: 0}';
+	  		
+	  		$str_css .= '.suffix'.$i.'{margin: 0}';
+	  		
+	  	}
 		
 		}
 		
