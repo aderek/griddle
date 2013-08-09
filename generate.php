@@ -141,7 +141,9 @@
 			
 				$str_css .= '.span'.$i.'{width:100%; margin:0; padding: 0 10px; clear: left; box-sizing: border-box; -moz-box-sizing: border-box;}';
 			
-				$str_css .= '.offset'.$i.'{margin: 0}';
+				$str_css .= '.prefix'.$i.'{margin: 0}';
+				
+				$str_css .= '.suffix'.$i.'{margin: 0}';
 				
 			}
 				
