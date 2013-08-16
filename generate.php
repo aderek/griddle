@@ -18,7 +18,7 @@
 	
 		$str_css = '';
 		
-	    $str_css .= generate_css($col_width, $col_margin, $col_num);
+	    $str_css .= generate_css($grid_width, $col_width, $col_margin, $col_num);
 	    
 	    // now do responsive breakpoints
 	    
@@ -28,7 +28,7 @@
 	    
 	    	$str_css .= "@media screen and (max-width:1024px) {";
 	    
-	    	$str_css .= generate_css($col_width, 10, $col_num);
+	    	$str_css .= generate_css(1024, $col_width, 10, $col_num);
 	    	
 	    	$str_css .= "}";
 	        	
@@ -40,7 +40,7 @@
     	
     		$str_css .= "@media screen and (max-width:768px) {";
     	
-    		$str_css .= generate_css($col_width, 10, $col_num);
+    		$str_css .= generate_css(768, $col_width, 10, $col_num);
     		
     		$str_css .= "}";
 	        	
@@ -50,11 +50,13 @@
     	
     		$str_css .= "@media screen and (max-width:568px) {";
     	
-    		$str_css .= generate_css($col_width, 0, $col_num, True);
+    		$str_css .= generate_css(568, $col_width, 0, $col_num, True);
     		
     		$str_css .= "}";
 	        	
 	    }
+	    
+	    $str_css .= ".first{margin-left:0px;padding-left:0;}.last{margin-right:0;padding-right:0;}";
 	    
 	    // save to file
 	    
@@ -114,7 +116,7 @@
 	* 	@return the string CSS
 	*/
 	
-	function generate_css($col_width, $col_margin, $col_num, $mobile=False) {
+	function generate_css($grid_width, $col_width, $col_margin, $col_num, $mobile=False) {
 	
 		$str_css = '';
 		
@@ -128,18 +130,28 @@
 			
 			else {
 			
-				$str_css .= '.span'.$i.'{width:100%; margin:0; padding: 0 10px; clear: left; box-sizing: border-box; -moz-box-sizing: border-box;}';
+				$str_css .= '.span'.$i.'{width:100%; margin:0; padding: 0;}';
 				
 			}
 				
 		}
 		
+		if(!$mobile) {
+		
+  		$str_css .= '.container{width:'.$grid_width.'px;margin:0 auto;float:none;}';
+  		
+  	} else {
+  	
+  	  $str_css .= '.container{width:100%;margin:0 auto;float:none;padding: 0 10px; clear: left; box-sizing: border-box; -moz-box-sizing: border-box;}';
+  	
+  	}
+		
 		for ($i=1;$i<=$col_num;$i++) {
 		
 		  if(!$mobile) {
 
-	  		// do the suffix classes (margin-right)
-	  		$offset = ($col_width * $i) + (($col_margin*2) * ($i-1)) + $col_margin;
+	  		// do the suffix/prefix classes (margin-right/left)
+	  		$offset = ($col_width * $i) + (($col_margin*2) * $i) + $col_margin;
 	  		
 	  		$str_css .= '.suffix'.$i.'{margin-right:'.$offset .'px;}';
 	  		
