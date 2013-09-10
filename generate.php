@@ -142,7 +142,7 @@
   		
   	} else {
   	
-  	  $str_css .= '.container{width:100%;margin:0 auto;float:none;padding: 0 10px; clear: left; box-sizing: border-box; -moz-box-sizing: border-box;}';
+  	  $str_css .= '.container{width:100%;margin:0 auto;float:none;padding: 0 10px; clear: left; -moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box; }';
   	
   	}
 		
